@@ -1,70 +1,25 @@
 @import "reset.css";
-*{
-  background-color:#edeef0;
+
+* {
+  background-color: #edeef0;
 }
-.container-wrapper{
-  display:grid;
+
+.container-wrapper {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
   grid-template-areas:
   "header header"
   "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap:10px;
   margin: 0 auto;
-  width:980px;
-  .nav{
-    grid-area:nav;
-    background-color: #d1e0e0;
-
-    ul{
-      background-color: #d1e0e0;
-
-      li{
-        line-height:40px;
-        text-indent: 1.2em;
-
-        a{
-          &:hover{
-            background-color:#aeb7c2;
-          }
-          display:block;
-          width:100%;
-          background-color: #d1e0e0;
-          text-decoration: none ;
-
-        }
-        &:nth-last-child(1){
-          margin-top:50px;
-        }
-      }
-    }
-  }
-  .header{
-    grid-area:header;
-    background-color:#a2ebeb;
-    .left_img{
-      width:50px;
-      height:auto;
-      margin: 3px 0 3px 2px;
-
-      img {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-  .content{
+  width: 980px;
+  .container-app-wrapper{
     grid-area:content;
+    width:100%;
+    height:auto;
     background-color: #a3c2c2;
-    .img_back_profile{
-      width:100%;
-      height:150px;
-    }
-    .av_descr{
-      img{
-        width:170px;
-        height:auto;
-      }
-    }
+    margin-top:10px;
   }
 }
+

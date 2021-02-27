@@ -3,60 +3,19 @@
   background-color: #edeef0;
 }
 .container-wrapper {
+  font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-areas: "header header" "nav content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
   margin: 0 auto;
   width: 980px;
 }
-.container-wrapper .nav {
-  grid-area: nav;
-  background-color: #d1e0e0;
-}
-.container-wrapper .nav ul {
-  background-color: #d1e0e0;
-}
-.container-wrapper .nav ul li {
-  line-height: 40px;
-  text-indent: 1.2em;
-}
-.container-wrapper .nav ul li a {
-  display: block;
-  width: 100%;
-  background-color: #d1e0e0;
-  text-decoration: none ;
-}
-.container-wrapper .nav ul li a:hover {
-  background-color: #aeb7c2;
-}
-.container-wrapper .nav ul li:nth-last-child(1) {
-  margin-top: 50px;
-}
-.container-wrapper .header {
-  grid-area: header;
-  background-color: #a2ebeb;
-}
-.container-wrapper .header .left_img {
-  width: 50px;
-  height: auto;
-  margin: 3px 0 3px 2px;
-}
-.container-wrapper .header .left_img img {
-  width: 50px;
-  height: 50px;
-}
-.container-wrapper .content {
+.container-wrapper .container-app-wrapper {
   grid-area: content;
-  background-color: #a3c2c2;
-}
-.container-wrapper .content .img_back_profile {
   width: 100%;
-  height: 150px;
-}
-.container-wrapper .content .av_descr img {
-  width: 170px;
   height: auto;
+  background-color: #a3c2c2;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=App.css.map */
