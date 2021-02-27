@@ -1,0 +1,15 @@
+.dialogs {
+  display: flex;
+  height: 100%;
+}
+.dialogs .dialogs_items {
+  border-right: 1px solid #000000;
+  flex: 20;
+}
+.dialogs .dialogs_items .active {
+  color: #525cba;
+}
+.dialogs .messages {
+  flex: 80;
+}
+/*# sourceMappingURL=Dialogs.module.css.map */

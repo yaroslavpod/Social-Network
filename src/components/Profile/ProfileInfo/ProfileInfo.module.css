@@ -1,0 +1,14 @@
+.content .img_back_profile {
+  width: 100%;
+  height: 170px;
+  margin-bottom: -3px;
+  background-repeat: no-repeat;
+}
+.content .av_descr {
+  padding: 20px;
+}
+.content .av_descr img {
+  width: 170px;
+  height: auto;
+}
+/*# sourceMappingURL=ProfileInfo.module.css.map */

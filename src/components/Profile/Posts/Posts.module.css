@@ -1,0 +1,15 @@
+.posts {
+  padding: 20px 20px 20px 20px;
+}
+.posts h3 {
+  font-weight: 700;
+  font-size: 20px;
+}
+.posts form {
+  padding: 10px 0;
+}
+.posts form textarea {
+  resize: none;
+  outline: none;
+}
+/*# sourceMappingURL=Posts.module.css.map */

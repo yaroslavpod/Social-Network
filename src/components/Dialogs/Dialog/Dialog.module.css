@@ -1,0 +1,21 @@
+.dialog_name {
+  position: relative;
+  cursor: pointer;
+}
+.dialog_name img {
+  position: absolute;
+  width: 30px;
+}
+.dialog_name a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  padding-left: 30px;
+  color: #000;
+  line-height: 35px;
+}
+.dialog_name a:hover {
+  color: #525cba;
+  background: #F0F8FF;
+}
+/*# sourceMappingURL=Dialog.module.css.map */
