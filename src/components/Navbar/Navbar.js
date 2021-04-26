@@ -16,6 +16,13 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className={classes.item}>
+                    <NavLink to="/friends" activeClassName={classes.active}>
+
+                        Friends
+
+                    </NavLink>
+                </li>
+                <li className={classes.item}>
                     <NavLink to="/dialogs" activeClassName={classes.active}>
                         Messages
                     </NavLink>
@@ -35,12 +42,20 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li className={classes.item}>
+                    <NavLink to="/users" activeClassName={classes.active}>
+
+                        Users
+
+                    </NavLink>
+                </li>
+                <li className={classes.item}>
                     <NavLink to="/settings" activeClassName={classes.active}>
 
                         Settings
 
                     </NavLink>
                 </li>
+
 
             </ul>
         </nav>

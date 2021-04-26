@@ -11,5 +11,12 @@
 }
 .dialogs .messages {
   flex: 80;
+  display: flex;
+  flex-direction: column;
+}
+.dialogs .messages .addMessage {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 /*# sourceMappingURL=Dialogs.module.css.map */

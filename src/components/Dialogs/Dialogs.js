@@ -1,36 +1,31 @@
 import classes from "./Dialogs.module.css"
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import AddMessage from "./Message/addMessage/addMessage";
 
 
 const Dialogs = (props) => {
-    let dialogsData = [
-        {id: 1, name: "Yaroslav",src:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/female/68.png"},
-        {id: 2, name: "Vitaliy"},
-        {id: 3, name: "Elena"},
-        {id: 4, name: "Viktor"},
-        {id: 5, name: "Valera"},
-        {id: 6, name: "Mariya"},
-        {id: 7, name: "Evgenia"},
-    ];
-    let dialogsTagData = dialogsData.map((el)=>{
-        return <Dialog id={el.id} name={el.name} src={el.src}/>
+    let dialogsElements = props.dialogsData.map((el) => {
+        return <Dialog id={el.id} name={el.name} key={el.id} src={el.src}/>
     });
-    let messageData = [
-        {id:1, message: "hello"},
-        {id:2, message: "My name is Hotteoi"},
-        {id:3, message: "Jo"}
-    ];
-    let messageTagData = messageData.map((el)=>{
-        return <Message id={el.id} message={el.message}/>
+    let messageElements = props.messageData.map((el) => {
+        return <Message id={el.id} key={el.id} message={el.message}/>
     });
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
-                {dialogsTagData}
+                {dialogsElements}
             </div>
             <div className={classes.messages}>
-                {messageTagData}
+                <div className={classes.messages}>
+                    {messageElements}
+                </div>
+
+                <div className={classes.addMessage}>
+                    <AddMessage dispatch={props.dispatch} newMessage={props.newMessage}
+                                addMessage={props.addMessage} onAreaChange={props.onAreaChange}/>
+                </div>
+
             </div>
         </div>
 

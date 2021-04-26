@@ -1,14 +1,32 @@
 .header{
   grid-area:header;
   background-color:#a2ebeb;
+  display:flex;
+  align-items: center;
+
   .left_img{
     width:50px;
     height:auto;
     margin: 3px 0 3px 2px;
+   flex-grow:1;
+    background-color:#a2ebeb;
 
     img {
       width: 50px;
       height: 50px;
     }
+  }
+  .login{
+    background-color:#a2ebeb;
+    flex: 0 ;
+    a{
+      background-color:#a2ebeb;
+      text-decoration: none;
+      color:#F0F8FF;
+      &:hover{
+        cursor:pointer;
+      }
+    }
+
   }
 }

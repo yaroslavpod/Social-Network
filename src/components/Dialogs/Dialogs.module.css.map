@@ -1,1 +1,1 @@
-{"version":3,"sources":["Dialogs.module.less"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,YAAA;;AAFF,QAGE;EACE,+BAAA;EACA,QAAA;;AALJ,QAGE,eAGE;EACI,cAAA;;AAPR,QAUE;EACE,QAAA","file":"Dialogs.module.css"}
+{"version":3,"sources":["Dialogs.module.less"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,YAAA;;AAFF,QAGE;EACE,+BAAA;EACA,QAAA;;AALJ,QAGE,eAGE;EACI,cAAA;;AAPR,QAUE;EACE,QAAA;EACA,aAAA;EACA,sBAAA;;AAbJ,QAUE,UAIE;EACE,YAAA;EACA,aAAA;EACA,qBAAA","file":"Dialogs.module.css"}
