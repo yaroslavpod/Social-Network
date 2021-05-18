@@ -1,11 +1,14 @@
-.content .img_back_profile {
-  width: 100%;
-  height: 170px;
-  margin-bottom: -3px;
-  background-repeat: no-repeat;
+.content {
+  position: relative;
+}
+.content .fullName {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 240px;
 }
 .content .av_descr {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 .content .av_descr img {
   width: 170px;

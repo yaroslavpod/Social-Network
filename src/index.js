@@ -6,7 +6,9 @@ import store from "./redux/reduxer-store";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
-
+setInterval(()=>{
+    store.dispatch({type:"FAKE"})
+},1000)
 
 let rerenderEntireTree = () => {
     ReactDOM.render(

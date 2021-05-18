@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {
-    follow, followThunkCreator, getUsers,
+    follow, followThunkCreator, requestUsers,
     setCurrentPage,
     switchIsFollowing,
     unfollow, unfollowThunkCreator
@@ -8,6 +8,15 @@ import {
 import * as React from "react";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../hoc/AuthRedirect";
+import {compose} from "redux";
+import {
+    getCurrentPage,
+    getFollowInWaiting,
+    getIsLoading,
+    getPageSize,
+    getTotalUsersCount, getUsers,
+} from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
     constructor(props) {
@@ -19,12 +28,12 @@ class UsersContainer extends React.Component {
     }
 
     onPageModed = (p) => {
-        this.props.setCurrentPage(p);
+
         this.props.getUsers(p, this.props.pageSize)
     }
 
     render() {
-
+        console.log("render")
         return <>
             <div>
                 {this.props.isLoading ? <Preloader/> : null}
@@ -37,24 +46,29 @@ class UsersContainer extends React.Component {
 
 
 const mapStateToProps = (state) => {
+    console.log("render state")
     return {
-        usersData: state.usersPage.usersData,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isLoading: state.usersPage.isLoading,
-        followWaiting: state.usersPage.followInWaiting
+        usersData: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isLoading: getIsLoading(state),
+        followWaiting: getFollowInWaiting(state)
     }
 
 }
 
-export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    switchIsFollowing,
-    getUsers,
-    unfollowThunkCreator,
-    followThunkCreator
-})(UsersContainer);
+export default compose (
+    connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setCurrentPage,
+        switchIsFollowing,
+        getUsers: requestUsers,
+        unfollowThunkCreator,
+        followThunkCreator
+    }),
+    withAuthRedirect
+)(UsersContainer);
+
 

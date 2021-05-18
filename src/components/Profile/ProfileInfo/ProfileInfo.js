@@ -1,17 +1,20 @@
 import classes from "./ProfileInfo.module.css"
-import Preloader from "../../common/Preloader/Preloader";
 import profilePhoto from "../../../assets/image/profile_photo.png"
+import ProfileStatus from './ProfileStatus.js'
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import * as React from 'react';
 const ProfileInfo = (props) => {
-    if(!props.profile){
-        return <Preloader/>
-    }
     return (
         <div className={classes.content}>
-            <img className={classes.img_back_profile} src="http://i.imgur.com/um8pJ5M.png" alt=""/>
             <div className={classes.av_descr}>
                 <img
                     src= {props.profile.photos.small?props.profile.photos.small:profilePhoto}
                     alt=""/>
+                    <div className={classes.fullName}>
+                        {props.profile.fullName}
+                    </div>
+
+                    <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus} getUserStatus={props.getUserStatus}/>
                 avatar +descr
             </div>
         </div>

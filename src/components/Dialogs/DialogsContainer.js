@@ -1,11 +1,9 @@
-import classes from "./Dialogs.module.css"
-import Dialog from "./Dialog/Dialog";
-import Message from "./Message/Message";
-import AddMessage from "./Message/addMessage/addMessage";
-import {addMessage, onAreaChange} from "../../redux/dialogs-reducer";
+import {addMessage} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-
 import {connect} from "react-redux";
+import * as React from "react";
+import {withAuthRedirect} from "../../hoc/AuthRedirect";
+import {compose} from "redux";
 
 
 /*const DialogsContainer = (props) => {
@@ -41,13 +39,12 @@ let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         newMessage: state.dialogsPage.newMessage,
-        messageData: state.dialogsPage.messageData
+        messageData: state.dialogsPage.messageData,
     }
 }
 
+export default compose(
+    connect(mapStateToProps, {addMessage}),
+    withAuthRedirect
+)(Dialogs);
 
-const DialogsContainer = connect(mapStateToProps, {
-    addMessage,
-    onAreaChange
-})(Dialogs);
-export default DialogsContainer;

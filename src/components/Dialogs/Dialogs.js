@@ -1,8 +1,8 @@
 import classes from "./Dialogs.module.css"
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import AddMessage from "./Message/addMessage/addMessage";
-
+import AddMessageFormRedux from "./Message/addMessage/addMessage";
+import React from 'react'
 
 const Dialogs = (props) => {
     let dialogsElements = props.dialogsData.map((el) => {
@@ -11,6 +11,9 @@ const Dialogs = (props) => {
     let messageElements = props.messageData.map((el) => {
         return <Message id={el.id} key={el.id} message={el.message}/>
     });
+    let addNewMessage =(values)=>{
+        props.addMessage(values.newMessageBody);
+    }
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
@@ -22,8 +25,7 @@ const Dialogs = (props) => {
                 </div>
 
                 <div className={classes.addMessage}>
-                    <AddMessage dispatch={props.dispatch} newMessage={props.newMessage}
-                                addMessage={props.addMessage} onAreaChange={props.onAreaChange}/>
+                    <AddMessageFormRedux onSubmit={addNewMessage} />
                 </div>
 
             </div>

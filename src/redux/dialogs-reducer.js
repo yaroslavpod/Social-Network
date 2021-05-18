@@ -1,4 +1,3 @@
-const UPDATE_LETTER_MESS = 'UPDATE-LETTER-MESS';
 const ADD_MESS = 'ADD-MESS';
 
 let initialState = {
@@ -21,7 +20,7 @@ let initialState = {
         {id: 2, message: "My name is Hotteoi"},
         {id: 3, message: "Jo"}
     ],
-    newMessage: ''
+
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -30,14 +29,7 @@ const dialogsReducer = (state = initialState, action) => {
             /*let copyState = Object.assign({}, state);*/
             return {
                 ...state,
-                newMessage: '',
-                messageData: [...state.messageData, {id: 4, message: state.newMessage}]
-            };
-        }
-        case UPDATE_LETTER_MESS: {
-            return {
-                ...state,
-                newMessage: action.messElement
+                messageData: [...state.messageData, {id: 4, message: action.newMessage}]
             };
         }
         default:
@@ -48,5 +40,4 @@ const dialogsReducer = (state = initialState, action) => {
 
 export default dialogsReducer;
 
-export const addMessage = () => ({type: ADD_MESS});
-export const onAreaChange = (messElement) => ({type: UPDATE_LETTER_MESS, messElement: messElement});
+export const addMessage = (newMessage) => ({type: ADD_MESS,newMessage});

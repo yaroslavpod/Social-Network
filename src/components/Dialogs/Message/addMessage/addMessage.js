@@ -1,38 +1,27 @@
 import classes from "./AddMessage.module.css"
 import React from "react";
-import {addMessageActionCreator, updateLetterMessActionCreator} from "../../../../redux/dialogs-reducer";
+import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../../../common/FormComponents/FormComponents";
+import {maxLengthCreator, requiredField} from "../../../../helpers/validators/validators";
 
+const maxLength10 = maxLengthCreator(10);
+const AddMessageForm = (props) => {
 
-const AddMessage = (props) => {
-
-    let addMessage = (e) => {
-        props.addMessage()
-        if (e.key === 'Enter') {
-            props.addMessage();
-        }
-        e.preventDefault();
-
-    }
-    let addMessageEnter = (event) => {
-        if (event.key === 'Enter') {
-            props.addMessage();
-        }
-    }
-    let onAreaChange = (e) => {
-        let messElement = e.target.value;
-        props.onAreaChange(messElement);
-    }
     return (
-        <div className={classes.form}>
+        <form className={classes.form} onSubmit={props.handleSubmit}>
             <div>
-                <textarea onChange={onAreaChange} cols="75" rows="2" value={props.newMessage}
-                          onKeyPress={addMessageEnter}/>
+                <Field validate={[requiredField,maxLength10]} component={Textarea} name="newMessageBody" placeholder="Enter your message" cols="75" rows="2"  />
+
             </div>
             <div className={classes.addMessage}>
-                <button onClick={addMessage}>
+                <button >
                     Отправить
                 </button>
             </div>
-        </div>);
+        </form>
+    )
 }
-export default AddMessage;
+
+let AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm);
+
+export default AddMessageFormRedux;
