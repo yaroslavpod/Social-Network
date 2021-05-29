@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile status component it shows the expected text when clicked 1`] = `
+<div
+  className="status"
+>
+  <div>
+    <span
+      onClick={[Function]}
+    >
+      Hell0
+    </span>
+  </div>
+</div>
+`;

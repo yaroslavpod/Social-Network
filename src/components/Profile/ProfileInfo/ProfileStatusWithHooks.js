@@ -3,7 +3,7 @@ import * as React from "react";
 import {useState,useEffect} from "react";
 
 
-const ProfileStatusWithHooks = (props) => {
+const ProfileStatusWithHooks = ({updateUserStatus,...props}) => {
 
     const [editMode,setEditMode] = useState(false);
     const [status,setStatus] = useState(props.status);
@@ -13,7 +13,7 @@ const ProfileStatusWithHooks = (props) => {
     }
     const deactivatedEditMode =()=>{
         setEditMode(false);
-        props.updateUserStatus(status);
+        updateUserStatus(status);
     }
     const handleFocus = (e) => {
         e.currentTarget.select();
@@ -23,9 +23,12 @@ const ProfileStatusWithHooks = (props) => {
     }
     useEffect(()=>{
         if(status !== props.status){
-            setStatus(status)
+            setStatus(props.status)
         }
     },[props.status])
+
+
+
     return (
         <div className={classes.status}>
             {!editMode &&
@@ -35,9 +38,11 @@ const ProfileStatusWithHooks = (props) => {
             }
             {editMode  &&
             <div>
-                <input onChange={onStatusChange} value={status}  onBlur={deactivatedEditMode} autoFocus={true} onFocus={handleFocus} />
+                <input  onChange={onStatusChange} value={status}  onBlur={deactivatedEditMode} autoFocus={true} onFocus={handleFocus} />
+
             </div>
             }
+
         </div>)
 
 }

@@ -1,27 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import store from "./redux/reduxer-store";
-import {BrowserRouter} from "react-router-dom";
-import {Provider} from "react-redux";
+import MainApp from "./App";
 
-setInterval(()=>{
-    store.dispatch({type:"FAKE"})
-},1000)
-
-let rerenderEntireTree = () => {
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                    <App/>
-            </Provider>
-        </BrowserRouter>,
-        document.getElementById('root')
-    );
-}
-
-rerenderEntireTree();
+ReactDOM.render(
+    <MainApp/>,
+    document.getElementById('root')
+);
 
 
 // callback call func from state with func argument for using there without import

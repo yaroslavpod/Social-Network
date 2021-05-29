@@ -1,0 +1,10 @@
+.pageNumbers .active {
+  font-weight: bold;
+}
+.pageNumbers span {
+  padding-right: 10px;
+}
+.pageNumbers span:nth-child(1) {
+  margin-left: 40px;
+}
+/*# sourceMappingURL=Pagination.module.css.map */

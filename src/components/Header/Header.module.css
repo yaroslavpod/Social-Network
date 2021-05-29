@@ -19,6 +19,17 @@
   background-color: #a2ebeb;
   flex: 0 ;
 }
+.header .login .loginName {
+  display: flex;
+  background-color: #a2ebeb;
+  align-items: center;
+}
+.header .login .loginName button {
+  margin-left: 10px;
+}
+.header .login .loginName button:hover {
+  cursor: pointer;
+}
 .header .login a {
   background-color: #a2ebeb;
   text-decoration: none;

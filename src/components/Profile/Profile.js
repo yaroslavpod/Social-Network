@@ -8,6 +8,7 @@ const Profile = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
+
     return (
         <div className={classes.content}>
             <ProfileInfo profile={props.profile} {...props}/>
@@ -15,5 +16,6 @@ const Profile = (props) => {
         </div>
     );
 }
+
 
 export default Profile;

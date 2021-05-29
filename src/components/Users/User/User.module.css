@@ -1,0 +1,41 @@
+.usersSearch {
+  width: 100%;
+  display: flex;
+}
+.usersSearch .buttons button {
+  width: 68px;
+}
+.usersSearch .avatarStyle {
+  margin-left: 70px;
+}
+.usersSearch .avatarStyle .avatar {
+  width: 68px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+.usersSearch .userInfo {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.usersSearch .userInfo .avatarStyle {
+  flex-grow: 0;
+  align-self: flex-end;
+}
+.usersSearch .userInfo .info {
+  padding: 10px 10px 10px 10px;
+  flex-grow: 2;
+}
+.usersSearch .userInfo .info .infoName {
+  padding-bottom: 15px;
+}
+.usersSearch .userInfo .city {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.container-app-wrapper {
+  background-color: #edeef0;
+}
+/*# sourceMappingURL=User.module.css.map */

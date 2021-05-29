@@ -1,12 +1,13 @@
 import {usersAPI} from "../api/api";
+import {updateObjectInArray} from "../helpers/object-helpers";
 
-const UNFOLLOW = 'UNFOLLOW';
-const FOLLOW = 'FOLLOW';
-const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const SWITCH_IS_LOADING = 'SWITCH_IS_LOADING';
-const SWITCH_IS_FOLLOWING = 'SWITCH_IS_FOLLOWING';
+const UNFOLLOW = 'users/UNFOLLOW';
+const FOLLOW = 'users/FOLLOW';
+const SET_USERS = 'users/SET-USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const SWITCH_IS_LOADING = 'users/SWITCH_IS_LOADING';
+const SWITCH_IS_FOLLOWING = 'users/SWITCH_IS_FOLLOWING';
 
 let initialState = {
     usersData: [],
@@ -15,16 +16,15 @@ let initialState = {
     currentPage: 1,
     isLoading: false,
     followInWaiting: [],
-    fake:0
+    fake: 0
 }
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "FAKE": return {...state,fake:state.fake+1}
         case FOLLOW:
             return {
                 ...state,
-                usersData: state.usersData.map(u => {
+                /*usersData: state.usersData.map(u => {
                     if (u.id === action.userID) {
                         return {
                             ...u,
@@ -32,12 +32,13 @@ const usersReducer = (state = initialState, action) => {
                         }
                     }
                     return u;
-                })
+                })*/
+                usersData: updateObjectInArray(state.usersData,action.userID,"id",{followed:true})
             }
         case UNFOLLOW:
             return {
                 ...state,
-                usersData: state.usersData.map(u => {
+                /*usersData: state.usersData.map(u => {
                     if (u.id === action.userID) {
                         return {
                             ...u,
@@ -45,7 +46,8 @@ const usersReducer = (state = initialState, action) => {
                         }
                     }
                     return u;
-                })
+                })*/
+                usersData: updateObjectInArray(state.usersData,action.userID,"id",{followed:false})
             }
 
         case SET_USERS: {
@@ -79,38 +81,28 @@ export const setUsers = (users) => ({type: SET_USERS, usersData: users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page: page});
 export const setTotalUsersCount = (usersCount) => ({type: SET_TOTAL_USERS_COUNT, usersCount: usersCount});
 
-export const requestUsers = (page, pageSize) => (dispatch) => {
-        dispatch(switchIsLoading(true));
-        dispatch(setCurrentPage(page));
-        usersAPI.getUsers(page, pageSize).then(data => {
-            dispatch(switchIsLoading(false));
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-        });
+export const requestUsers = (page, pageSize) => async (dispatch) => {
+    dispatch(switchIsLoading(true));
+    dispatch(setCurrentPage(page));
+    let data = await usersAPI.getUsers(page, pageSize)
+    dispatch(switchIsLoading(false));
+    dispatch(setUsers(data.items));
+    dispatch(setTotalUsersCount(data.totalCount));
+}
+
+const followUnfollowFlow = async (dispatch, id, apiMethod, actionCreator) => {
+    dispatch(switchIsFollowing(true, id));
+    let data = await apiMethod(id)
+    if (data.resultCode === 0) {
+        dispatch(actionCreator(id));
+        dispatch(switchIsFollowing(false, id));
+    }
 }
 export const unfollowThunkCreator = (id) => (dispatch) => {
-    dispatch(switchIsFollowing(true, id));
-    usersAPI.postUnfollow(id).then(data => {
-        if (data.resultCode === 0) {
-            dispatch(unfollow(id));
-            dispatch(switchIsFollowing(false, id));
-        }
-
-
-    });
+    followUnfollowFlow(dispatch, id, usersAPI.postUnfollow, unfollow)
 }
 export const followThunkCreator = (id) => (dispatch) => {
-    debugger;
-    dispatch(switchIsFollowing(true, id));
-    usersAPI.postFollow(id).then(data => {
-        debugger;
-        if (data.resultCode === 0) {
-            dispatch(follow(id));
-            dispatch(switchIsFollowing(false, id));
-        }
-
-
-    });
+    followUnfollowFlow(dispatch, id, usersAPI.postFollow, follow)
 }
 
 export default usersReducer;
