@@ -4,10 +4,11 @@ import Pagination from "../common/Paginator/Pagination";
 import User from "./User/User";
 
 
-const Users = ({totalUsersCount, pageSize, currentPage, onPageModed, ...props}) => {
+const Users = ({totalUsersCount, pageSize, currentPage, onPageModed,portionSize, ...props}) => {
+
     return <div className={classes.wrapper}>
-        <Pagination totalUsersCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage}
-                    onPageModed={onPageModed}/>
+        <Pagination totalItemsCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage}
+                    onPageModed={onPageModed} portionSize={portionSize}/>
         {
             props.usersData.map((el) => <User user={el} {...props} key={el.id}/>)
         }

@@ -14,7 +14,7 @@ import {
     getCurrentPage,
     getFollowInWaiting,
     getIsLoading,
-    getPageSize,
+    getPageSize, getPortionSize,
     getTotalUsersCount, getUsers,
 } from "../../redux/users-selectors";
 
@@ -53,7 +53,8 @@ const mapStateToProps = (state) => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isLoading: getIsLoading(state),
-        followWaiting: getFollowInWaiting(state)
+        followWaiting: getFollowInWaiting(state),
+        portionSize: getPortionSize(state)
     }
 
 }

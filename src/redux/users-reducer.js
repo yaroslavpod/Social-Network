@@ -16,6 +16,7 @@ let initialState = {
     currentPage: 1,
     isLoading: false,
     followInWaiting: [],
+    portionSize:10,
     fake: 0
 }
 

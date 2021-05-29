@@ -26,3 +26,6 @@ export const getIsLoading = (state) => {
 export const getFollowInWaiting = (state) => {
     return state.usersPage.followInWaiting
 }
+export const getPortionSize = (state) => {
+    return state.usersPage.portionSize
+}
