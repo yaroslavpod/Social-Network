@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Social-Network/static/css/main.ad9eb03c.chunk.css",
+    "main.js": "/Social-Network/static/js/main.bad958f4.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.bad958f4.chunk.js.map",
+    "runtime-main.js": "/Social-Network/static/js/runtime-main.426a0d59.js",
+    "runtime-main.js.map": "/Social-Network/static/js/runtime-main.426a0d59.js.map",
+    "static/js/2.aafd7a2c.chunk.js": "/Social-Network/static/js/2.aafd7a2c.chunk.js",
+    "static/js/2.aafd7a2c.chunk.js.map": "/Social-Network/static/js/2.aafd7a2c.chunk.js.map",
+    "static/css/3.cd0544af.chunk.css": "/Social-Network/static/css/3.cd0544af.chunk.css",
+    "static/js/3.48f3875b.chunk.js": "/Social-Network/static/js/3.48f3875b.chunk.js",
+    "static/js/3.48f3875b.chunk.js.map": "/Social-Network/static/js/3.48f3875b.chunk.js.map",
+    "static/css/4.905f1e20.chunk.css": "/Social-Network/static/css/4.905f1e20.chunk.css",
+    "static/js/4.b6c38b11.chunk.js": "/Social-Network/static/js/4.b6c38b11.chunk.js",
+    "static/js/4.b6c38b11.chunk.js.map": "/Social-Network/static/js/4.b6c38b11.chunk.js.map",
+    "index.html": "/Social-Network/index.html",
+    "static/css/3.cd0544af.chunk.css.map": "/Social-Network/static/css/3.cd0544af.chunk.css.map",
+    "static/css/4.905f1e20.chunk.css.map": "/Social-Network/static/css/4.905f1e20.chunk.css.map",
+    "static/css/main.ad9eb03c.chunk.css.map": "/Social-Network/static/css/main.ad9eb03c.chunk.css.map",
+    "static/js/2.aafd7a2c.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.aafd7a2c.chunk.js.LICENSE.txt",
+    "static/media/img.25d070a8.png": "/Social-Network/static/media/img.25d070a8.png",
+    "static/media/profile_photo.d7120c35.png": "/Social-Network/static/media/profile_photo.d7120c35.png",
+    "static/media/spinner.66cab970.svg": "/Social-Network/static/media/spinner.66cab970.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.426a0d59.js",
+    "static/js/2.aafd7a2c.chunk.js",
+    "static/css/main.ad9eb03c.chunk.css",
+    "static/js/main.bad958f4.chunk.js"
+  ]
+}
